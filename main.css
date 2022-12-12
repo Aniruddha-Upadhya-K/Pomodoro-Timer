@@ -9,7 +9,7 @@
 body {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, #a8a6a6 0%, #f4efde 0.01%, #c6c4c4 0.02%, #DBDBDB 100%);
+    background: linear-gradient(180deg, #C4C4C4 0%, #FFFBED 0.01%, #FFFFFF 0.02%, #DBDBDB 100%);
     overflow: hidden;
     font-family: 'Baloo 2';
     font-size: 44px;
@@ -25,18 +25,10 @@ body {
     position: absolute;
     top: 0px;
     right: 0px;
-    gap: 48px;
+    gap: 32px;
     margin: 12px 32px 0px 0px;
-}
-
-.darkMode {
-    position: absolute;
-
-    right: 105.54%;
-    top: 0.25%;
-    bottom: 10%;
-    
-
+    align-items: center;
+    flex-direction: row;
 }
 
 .container {
@@ -47,8 +39,9 @@ body {
 }
 
 .textContainer {
-    width: 56.87vw;
-    height: 68.617vh;
+    width: 60vw;
+    min-width: 850px;
+    /* height: 68.617vh; */
     background: linear-gradient(127.07deg, rgba(255, 126, 173, 0.75) 0%, rgba(148, 145, 145, 0.15) 100.01%);    display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,10 +53,11 @@ body {
 .title {
     font-size: 88px;
     font-weight: 700;
+    margin: 0 24px;
 }
 
 .info {
-    margin: 0 4.5%;
+    margin: 0 24px 24px;
 }
 
 a {
@@ -90,14 +84,26 @@ a.about {
     filter: blur(1px);
 }
 
+.ellipse2 {
+    background-color: #FF3E82;
+    height: 330px;
+    width: 330px;
+    border-radius: 50%;
+    bottom: -175px;
+    left: 50%;
+    z-index: -1;
+}
+
 .pomodoro {
-    position: relative;
-    top: -10px;
+    position: absolute;
+    bottom: -67.5px;
     background: linear-gradient(180deg, rgba(154, 154, 154, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
     box-shadow: inset 10px 20px 20px rgba(255, 255, 255, 0.25);
     border-radius: 54%;
     height: 135px;
     width: 135px;    
+    backdrop-filter: blur(15px);
+    /* z-index: 2; */
 }
 
 .pomodoro img 
@@ -115,9 +121,9 @@ a.about {
 
 .hourGlass
 {
-left: 89.29%;
-top: 28.98%;
-z-index: -1;
-filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.25));
-transform: rotate(-1deg)
+    left: 89.29%;
+    top: 28.98%;
+    z-index: -1;
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.25));
+    transform: rotate(-1deg)
 }
