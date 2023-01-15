@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --text-color: #fff;
+    --sun-icon: inline-block;
+    --moon-icon: none;
+
+    --body-font-size: 44px;
+    --title-font-size: 88px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: var(--background);
+    overflow: hidden;
+    font-family: 'Baloo 2';
+    font-size: var(--body-font-size);
+    font-weight: 400;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root{
+        --background: linear-gradient(180deg, #3D3D3D 0%, #131313 100%); 
+        --card-background: linear-gradient(127.07deg, rgba(91, 91, 91, 0.75) 0%, rgba(92, 92, 92, 0.15) 100.01%);
+        --card-box-shadow: none;
+
+        --sun-icon: inline-block;
+        --moon-icon: none;
+        
+        --text-color: #fff;
+    }
+}
+
+@media screen and (prefers-color-scheme: light) {
+    :root {
+        --background: linear-gradient(180deg, #FFFFFF 0%, #808080 100%); 
+        --card-background: linear-gradient(127.07deg, rgba(255, 126, 173, 0.75) 0%, rgba(148, 145, 145, 0.15) 100.01%);
+        --card-box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+
+        --sun-icon: none;
+        --moon-icon: inline-block;
+
+        --text-color: #454A55;
+    }
+}
+
+.nav {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    gap: 32px;
+    margin: 12px 32px 0px 0px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.lightMode{
+    display: var(--sun-icon);
+}
+
+.darkMode {
+    display: var(--moon-icon);
+}
+
+input {
+    display: none;
+}
+
+.icons {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.textContainer {
+    width: 60vw;
+    min-width: 50vh;
+    background: var(--card-background);    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+    font-size: var(--title-font-size);
+    font-weight: 700;
+    margin: 0 24px;
+}
+
+.info {
+    margin: 0 24px 24px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.about {
+    color: #FF019A;
+    font-weight: 600;
+}
+
+.ellipse1, .ellipse2, .hourGlass, .timer {
+    position: absolute;
+}
+
+.ellipse1 {
+    height: 510px;
+    width: 510px;
+    border-radius: 50%;
+    background-color: #FF67B0;
+    left: -300px;
+    top: -230px;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.ellipse2 {
+    background-color: #FF3E82;
+    height: 330px;
+    width: 330px;
+    border-radius: 50%;
+    bottom: -175px;
+    left: 50%;
+    z-index: -1;
+}
+
+.pomodoro {
+    position: absolute;
+    bottom: -67.5px;
+    
+    box-shadow: inset 10px 20px 20px rgba(255, 255, 255, 0.25);
+    border-radius: 54%;
+    height: 135px;
+    width: 135px;    
+    backdrop-filter: blur(15px);
+    transition: all 0.3s;
+}
+
+.pomodoro:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.pomodoro:hover img {
+    transform: scale(1.1);
+}
+
+.pomodoro img 
+{
+    position: relative;
+    top: -18px;
+    right: -7px;
+    transition: all 0.3s;
+}
+
+.timer
+{
+    height: 250px;
+    width: 250px;
+    background: url("Assets/timer.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right:93%;
+    top: 73.81%;
+}
+
+.hourGlass
+{
+    height: 500px;
+    width: 300px;
+    background-size: contain;
+    left: 89.29%;
+    top: 28.98%;
+    z-index: -1;
+    transform: rotate(-1deg);
+    background: url("Assets/Hour-glass.png");
+    background-repeat: no-repeat;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .textContainer {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .textContainer {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    :root {
+        --body-font-size: 32px;
+        --title-font-size: 64px;
+    }
+    .hourGlass {
+        height: 325px;
+        width: 200px;
+        background-size: contain;
+        left: 89.29%;
+        top: 28.98%;
+    }
+    .timer {
+        background-size: contain;
+        right:93%;
+        top: 73.81%;
+        height: 150px;
+        width: 150px;
+    }
+    .pomodoro {
+        height: 100px;
+        width: 100px;
+    }
+    .pomodoro img 
+    {
+        position: relative;
+        top: -32px;
+        right: 10px;
+        transform: scale(0.85);
+    }
+    .pomodoro:hover img {
+        transform: scale(0.95);
+    }
+    .ellipse1 {
+        height: 330px;
+        width: 330px;
+        border-radius: 50%;
+        background-color: #FF67B0;
+        left: -150px;
+        top: -150px;
+    }
+    .ellipse2 {
+        height: 225px;
+        width: 225px;
+        border-radius: 50%;
+        bottom: -125px;
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    :root {
+        --body-font-size: 28px;
+        --title-font-size: 48px;
+    }
+}
+
+@media screen and (max-width: 586px) {
+    :root {
+        --body-font-size: 24px;
+        --title-font-size: 38px;
+    }
+    .nav {
+        margin: 12px 18px 0px 0px;
+    }
+    .hourGlass {
+        left: 80%;
+        top: 20.98%;
+    }
+    .timer {
+        right:89%;
+        top: 73.81%;
+    }
+    .pomodoro {
+        height: 75px;
+        width: 75px;
+        bottom: -35px;
+    }
+    .pomodoro img 
+    {
+        position: relative;
+        top: -42px;
+        right: 25px;
+        transform: scale(0.55);
+    }
+    .pomodoro:hover img {
+        transform: scale(0.65);
+    }
+    .ellipse1 {
+        height: 330px;
+        width: 330px;
+        border-radius: 50%;
+        background-color: #FF67B0;
+        left: -150px;
+        top: -150px;
+    }
+}
+
+@media screen and (max-width: 418px) {
+    :root {
+        --body-font-size: 18px;
+        --title-font-size: 28px;
+    }
+    .hourGlass {
+
+        left: 83%;
+        top: 20%;
+        height: 250px;
+        width: 150px;
+    }
+    .timer {
+        right:89%;
+        top: 73.81%;
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    a.aboutUs:hover, .theme:hover {
+        color: #FF67B0;
+    }
+    
+    a.aboutUs, .theme {
+        transition: all 0.3s;
+    }
+}

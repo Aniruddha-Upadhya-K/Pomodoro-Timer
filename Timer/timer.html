@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/53937285ec.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="timer.css">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../tinywow_eagle icon transparent.png" type="image/x-icon">
+</head>
+<body>
+    
+    <canvas class="canvas"></canvas>
+    
+    <div class="container">
+        <div class="nav">
+            <div class="home">
+                <a href="../index.html" class="home">
+                    <img src="../tinywow_eagle icon transparent.png" alt="Home" class="home-logo">
+                </a>
+            </div>
+            <div class="setting-and-mode">
+                <div class="themecontainer">
+                    <label class="theme" for="theme">
+                        <input type="checkbox" id="theme">
+                        <div class="lightMode">
+                            <i class="fa-solid fa-sun icons"></i>
+                        </div>
+                        <div class="darkMode">
+                            <i class="fa-solid fa-moon icons"></i>
+                        </div>
+                    </label>
+                </div>
+                <div class="settings" onclick="settingsWindow()">
+                    <i class="fa-solid fa-gear icons"></i>
+                </div>
+            </div>
+        </div>
+        <div class="subcontainer">
+            <canvas class="progress-bar"></canvas>
+            <div class="texts">
+                <div class="break">Pomodoro</div>
+                <div class="time">25:00</div>
+                <div class="interval">Interval 1/4</div>
+                <div class="controlls">
+                    <div class="play paused" onclick="Play()">
+                        <i class="fa-solid fa-play icons"></i>
+                    </div>
+                    <div class="pause paused" onclick="Pause()">
+                        <i class="fa-solid fa-pause icons"></i>
+                    </div>
+                    <div class="restart paused" onclick="Restart()">
+                        <i class="fa-solid fa-rotate-left icons"></i>
+                    </div>
+                    <div id="restartPomodoro" onclick="removeRestartPomodoro()">
+                        <i class="fa-solid fa-rotate-left icons"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="settings-container closed" data-name="settings">
+            <div class="edit-time-container">
+                <div class="heading">
+                    <div class="pomodoro active setting-heading" data-time-setting="1" onclick="edit(this)">Pomodoro</div>
+                    <div class="short-break setting-heading" data-time-setting="2" onclick="edit(this)">Short Break</div>
+                    <div class="long-break setting-heading" data-time-setting="3" onclick="edit(this)">Long Break</div>
+                </div>
+                <div class="edit-time active" data-time-setting="1">
+                    <div class="time-editor">
+                        <div class="min">
+                            <input type="number" class="min-input" value="25" onKeyPress="if(this.value.length==2) return false;" max="60" data-time-setting="1">
+                            <div class="sub-heading">Mins</div>
+                        </div>
+                        <div class="colon">:</div>
+                        <div class="sec">
+                            <input type="number" class="sec-input" value="00" onKeyPress="if(this.value.length==2) return false;" max="60" data-time-setting="1">
+                            <div class="sub-heading">Secs</div>
+                        </div>
+                    </div>
+                    <div class="count">
+                        <label for="interval-count">Total Pomodoros </label>
+                        <input type="number" id="interval-count" value="4">
+                    </div>
+                </div>
+                <div class="edit-time " data-time-setting="2">
+                    <div class="time-editor">
+                        <div class="min">
+                            <input type="number" class="min-input" value="05" onKeyPress="if(this.value.length==2) return false;" max="60" data-time-setting="2">
+                            <div class="sub-heading">Mins</div>
+                        </div>
+                        <div class="colon">:</div>
+                        <div class="sec">
+                            <input type="number" class="sec-input" value="00" onKeyPress="if(this.value.length==2) return false;" max="60" data-time-setting="2">
+                            <div class="sub-heading">Secs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-time " data-time-setting="3">
+                    <div class="time-editor">
+                        <div class="min">
+                            <input type="number" class="min-input" value="30" onKeyPress="if(this.value.length==2) return false;" max="60" data-time-setting="3">
+                            <div class="sub-heading">Mins</div>
+                        </div>
+                        <div class="colon">:</div>
+                        <div class="sec">
+                            <input type="number" class="sec-input" value="00" onKeyPress="if(this.value.length==2) return false;" max="60" data-time-setting="3">
+                            <div class="sub-heading">Secs</div>
+                        </div>
+                    </div>
+                    <div class="count">
+                        <label for="break-interval">Long Break interval </label>
+                        <input type="number" id="break-interval" value="3">
+                    </div>
+                </div>
+            </div>
+            <div class="divider">
+                <div class="line"></div>
+            </div>
+            <div class="other-settings">
+                <div class="auto-break">
+                    <div class="auto-break-text">Auto Start Breaks</div>
+                    <div class="button">
+                        <label for="auto-break" class="toggle-switch">
+                            <input type="checkbox" id="auto-break">
+                            <div class="toggle-switch-container">
+                                <div class="switch"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="auto-pomodoro">
+                    <div class="auto-pomodoro-text">Auto Start Pomodoros</div>
+                    <div class="button">
+                        <label for="auto-pomodoro" class="toggle-switch">
+                            <input type="checkbox" id="auto-pomodoro">
+                            <div class="toggle-switch-container">
+                                <div class="switch"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!-- <div class="sound">
+                    <div class="sound-texts">
+                        <div class="alarm-sound">Alarm sound</div>
+                        <select id="sound-name">
+                            <option>Audio 1</option>
+                            <option>Audio 2</option>
+                            <option>Audio 3</option>
+                        </select>
+                    </div>
+                    <div class="volume-container">
+                        <span class="material-symbols-rounded volume-icon">
+                            volume_up
+                        </span>
+                        <div class="slide-bar">
+                            <div class="volume-percentage"></div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="button-section">
+                <div class="done setting-button" onclick="done()">Done</div>
+                <div class="cancel setting-button" onclick="settingsWindow()">Cancel</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <audio src="scanning-sci-fi-alarm.wav"></audio> -->
+    <audio src="Alarm.mp3"></audio>
+        
+    <script src="theme.js"></script>
+    <script src="timer.js"></script>
+    <script src="background.js"></script>
+</body>
+</html>

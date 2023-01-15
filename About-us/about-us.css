@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --title-font-size: 64px;
+    --title-bold-font-size: 98px;
+    --body-font-size: 48px;
+    --text-font-size: 38px;
+
+    --inner-ellipse: linear-gradient(180deg, #FF67A3 66.33%, rgba(255, 103, 176, 0.45) 100%);
+    --outer-ellipse: #585858;
+    --text-color: #fff;
+    --usn-color: rgba(255, 255, 255, 0.5);
+
+    --hover-card-color: rgba(71, 71, 71, 0.75);
+
+    --background-img: url("Assets/Background-Dark-Theme.png");
+    --background-color: linear-gradient(180deg, #3D3D3D 0%, #131313 100%); 
+
+    --sun-icon: none;
+    --moon-icon: inline-block;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 1.5vh;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    background: var(--background-color);
+    background-attachment: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    position: relative;
+    z-index: -3;
+
+    font-family: "Baloo 2";
+    color: var(--text-color);
+    font-size: var(--body-font-size);
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+div.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-logo {
+    height: calc(var(--body-font-size) * 2);
+    width: calc(var(--body-font-size) * 2);
+    vertical-align: middle;
+}
+
+.icons {
+    cursor: pointer;
+}
+
+.themecontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.lightMode{
+    display: var(--sun-icon);
+}
+
+.darkMode {
+    display: var(--moon-icon);
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: var(--background-img);
+    background-size: fill;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    z-index: -3;
+}
+
+
+
+.inner-ellipse {
+    background: var(--inner-ellipse);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: -70vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.outer-ellipse {
+    background: var(--outer-ellipse);
+    height: 79.5vh;
+    width: 126.4vw;
+    position: absolute;
+    z-index: -2;
+    top: -55vh;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+input {
+    display: none;
+}
+
+.title {
+    color: var(--text-color);
+    font-family: 'Baloo 2';
+    font-size: var(--title-font-size);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: all 0.3s;
+}
+
+span.bold {
+    font-size: var(--title-bold-font-size);
+}
+
+.advisor-teammate-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px;
+}
+
+.heading {
+    margin-left: 24px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 48px;
+}
+
+.img-subcontainer {
+    height: 310px;
+    width: 310px;
+    margin: 12px;
+    perspective: 1000px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    border-radius: 50%;
+}
+
+.img-subcontainer:hover .card {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 50%;
+}
+
+.front {
+    background-color: #585858;
+}
+
+.back {
+    background-color: var(--hover-card-color);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(7.5px);
+}
+
+.name {
+    font-size: var(--text-font-size);
+}
+
+.usn {
+    font-size: var(--text-font-size);
+    color: var(--usn-color);
+}
+
+.contact {
+    display: flex;
+    gap: 12px;
+}
+
+#Aniruddha {
+    background: url("Assets/Aniruddha-profile.jpg");
+    background-size: contain;
+}
+
+#Shawn {
+    background: url("Assets/Shawn-profile.jpg");
+    background-size: contain;
+}
+
+#Nihal {
+    background: url("Assets/Nihal-profile.jpg");
+    background-size: contain;
+}
+
+#Shashank {
+    background: url("Assets/Shashank-profile.jpg");
+    background-size: contain;
+}
+
+#Manish {
+    background: url("Assets/Manish-profile.jpg");
+    background-size: contain;
+}
+
+#Apeksha {
+    background: url("Assets/Apeksha-profile.jpg");
+    background-size: contain;
+}
+
+#Akshita {
+    background: url("Assets/Akshita-profile.jpg");
+    background-size: contain;
+}
+
+#Preethesh {
+    background: url("Assets/Preethesh-profile.jpg");
+    background-size: contain;
+}
+
+#Parinitha {
+    background: url("Assets/Parinitha-profile.jpg");
+    background-size: contain;
+}
+
+#Saathwik {
+    background: url("Assets/profile.jpg");
+    background-size: contain;
+}
+
+#Navaraj {
+    background: url("Assets/Navaraj-profile.jpg");
+    background-size: contain;
+}
+
+#Pavan {
+    background: url("Assets/Pavan.jpg");
+    background-size: contain;
+}
+
+#Bhushan {
+    background: url("Assets/profile.jpg");
+    background-size: contain;
+}
+
+#Rahul {
+    background: url("Assets/Rahul-profile.jpg");
+    background-size: contain;
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --title-font-size: 48px;
+        --title-bold-font-size: 64px;
+        --body-font-size: 32px;
+        --text-font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --title-font-size: 40px;
+        --title-bold-font-size: 54px;
+        --body-font-size: 24px;
+        --text-font-size: 24px;
+    }
+
+    .img-subcontainer {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    :root {
+        --title-font-size: 28px;
+        --title-bold-font-size: 32px;
+        --body-font-size: 18px;
+        --text-font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    :root {
+        --title-font-size: 24px;
+        --title-bold-font-size: 28px;
+        --body-font-size: 18px;
+        --text-font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    a.home:hover, .theme:hover, .git-hub:hover, .linked-in:hover, .insta:hover {
+        color: #FF67B0;
+    }
+    
+    a.home, .theme,.git-hub, .linked-in, .insta {
+        transition: all 0.3s;
+    }
+    
+}

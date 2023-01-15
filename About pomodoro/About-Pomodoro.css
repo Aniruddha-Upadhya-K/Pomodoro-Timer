@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap'); 
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-card-background: linear-gradient(272.8deg, rgba(123, 123, 123, 0.9) 0%, rgba(70, 70, 70, 0.3) 100%); 
+    --card-background: linear-gradient(139.89deg, rgba(67, 67, 67, 0.3) 0%, rgba(60, 60, 60, 0.309375) 0.01%, rgba(60, 60, 60, 0.9) 100%);
+
+    --text-color: #fff;
+    --sun-icon: inline-block;
+    --moon-icon: none;
+
+    --background: linear-gradient(180deg, #3D3D3D 0%, #131313 100%);
+
+    --body-font-size: 32px;
+    --title-font-size: 74px;
+    --quote-font-size: 54px;
+    --heading-font-size: 40px;
+    --nav-font-size: 48px;
+
+    --background-img: url("Assets/Background-Dark-Theme.png");
+
+    --card-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+body {
+    width: 100%;
+    background: var(--background);
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    font: 400 var(--body-font-size) 'Baloo 2', cursive;
+}
+
+.background-container {
+    height: 100%;
+    width: 100%;
+    background: var(--background-img) center/contain repeat-y;
+}
+
+.container {
+    margin: 12px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow: hidden;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--nav-font-size);
+}
+
+.home-logo {
+    height: calc(var(--body-font-size) * 2);
+    width: calc(var(--body-font-size) * 2);
+    vertical-align: middle;
+}
+
+.lightMode{
+    display: var(--sun-icon);
+}
+
+.darkMode {
+    display: var(--moon-icon);
+}
+
+.home {
+    text-decoration: none;
+    color: inherit;
+}
+
+label {
+    cursor: pointer;
+}
+
+input {
+    display: none;
+}
+
+.subcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.pomodoro {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--main-card-background);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    gap: 4px;
+    margin: 0 0 12px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.title {
+    font-size: var(--title-font-size);
+    font-weight: 700;
+}
+
+.quote {
+    font-size: var(--quote-font-size);
+    font-weight: 500;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 24px;
+}
+
+.def {
+
+    flex: 1;
+
+}
+
+.feature {
+    align-items: flex-start;
+
+    flex: 1;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    backdrop-filter: blur(6.5px);
+
+    background: var(--card-background);
+    padding: 24px;
+    border-radius: 35px;
+    margin: 12px;
+
+    box-shadow: var(--card-shadow);
+}
+
+.heading {
+    font-size: var(--heading-font-size);
+    font-weight: 600;
+}
+
+.wiki {
+    color: #FF67B0;
+    text-decoration: none;
+}
+
+ul {
+    list-style-position: inside;
+    text-align: left;
+}
+
+@media screen and (max-width: 950px) {
+    .container {
+        margin: 12px 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --body-font-size: 24px;
+        --title-font-size: 56px;
+        --quote-font-size: 48px;
+        --heading-font-size: 28px;
+        --nav-font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+    }
+}
+
+@media screen and (max-width: 516px) {
+    :root {
+        --body-font-size: 18px;
+        --title-font-size: 44px;
+        --quote-font-size: 36px;
+        --heading-font-size: 24px;
+        --nav-font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    :root {
+        --body-font-size: 18px;
+        --title-font-size: 36px;
+        --quote-font-size: 28px;
+        --heading-font-size: 24px;
+        --nav-font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 366px) {
+    :root {
+        --body-font-size: 12px;
+        --title-font-size: 28px;
+        --quote-font-size: 24px;
+        --heading-font-size: 18px;
+        --nav-font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .home:hover, .theme:hover {
+        color: #FF67B0;
+    }
+    .hover, .theme{
+        transition: all 0.3s;
+    }
+}
