@@ -199,7 +199,7 @@ function random(a, b)
     let ran = (Math.random() * (b-a)) + a
     return ran
 }
-setInterval(update, 200)
+setInterval(update, 150)
 
 window.addEventListener('resize', canvasResize)
 
